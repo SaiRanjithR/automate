@@ -1,0 +1,68 @@
+[project]
+name = "bidready-backend"
+version = "0.1.0"
+description = "BidReady API: RFP compliance matrix and auto-drafter"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.20.1",
+    "anthropic>=2.14.0",
+    "argon2-cffi>=25.1.0",
+    "fastapi>=0.165.0",
+    "fastembed>=0.9.1",
+    "numpy>=2.5.5",
+    "openpyxl>=3.1.5",
+    "pydantic-settings>=2.16.3",
+    "pyjwt>=2.15.1",
+    "pymupdf>=2.1",
+    "python-docx>=1.2.0",
+    "python-multipart>=0.0.34",
+    "pyyaml>=6.0.4",
+    "rank-bm25>=0.2.2",
+    "rapidfuzz>=3.14.6",
+    "sqlmodel>=0.0.50",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "mypy>=2.4.1",
+    "pytest>=9.2.0",
+    "ruff>=0.17.6",
+    "types-openpyxl>=3.1.5.20261122",
+    "types-pyyaml>=6.0.12.20261122",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["alembic/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["E501"]  # the formatter owns line length; long strings are allowed
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+known-third-party = ["alembic"]
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+plugins = ["pydantic.mypy"]
+files = ["app"]
+# PyMuPDF and python-docx ship without type hints; calls into them are allowed untyped.
+untyped_calls_exclude = ["pymupdf", "docx"]
+
+[[tool.mypy.overrides]]
+module = ["rank_bm25", "pymupdf.*", "docx.*", "fastembed.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = [
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated",
+    "ignore:builtin type .* has no __module__ attribute:DeprecationWarning",
+]

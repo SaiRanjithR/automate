@@ -1,0 +1,162 @@
+[
+  {
+    "clause": "4.1.1",
+    "text": "The solution shall provide patient registration with Ayushman Bharat Health Account (ABHA) number linkage at every registration counter.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.1.2",
+    "text": "The solution shall provide outpatient (OPD) and inpatient (IPD) management including admission, transfer and discharge summaries.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.1.3",
+    "text": "The solution shall include pharmacy, laboratory and radiology modules integrated with the electronic medical record.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.1.4",
+    "text": "The solution shall generate itemised patient bills and support cashless claims under the state health insurance scheme.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.1.5",
+    "text": "The solution shall provide a dashboard of bed occupancy, OPD footfall and drug stock for the Mission headquarters.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.1.6",
+    "text": "The user interface shall be available in English and Kannada.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.1.7",
+    "text": "The solution shall integrate with the biometric attendance system of the hospitals.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.1.8",
+    "text": "The bidder should provide Android and iOS mobile applications for doctors to view patient records.",
+    "type": "optional"
+  },
+  {
+    "clause": "4.2.1",
+    "text": "The solution shall be hosted on a MeitY-empanelled cloud with all data stored within India.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.2.2",
+    "text": "The solution shall support HL7 FHIR R4 interfaces and be certified for ABDM milestones M1, M2 and M3.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.2.3",
+    "text": "The bidder shall guarantee 99.5% monthly uptime for the production environment.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.2.4",
+    "text": "All data shall be encrypted at rest using AES-256 and in transit using TLS 1.2 or higher.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.2.5",
+    "text": "The solution shall provide role-based access control and a tamper-proof audit trail of every record access.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.2.6",
+    "text": "The bidder shall get a security audit (VAPT) done by a CERT-In empanelled auditor before go-live and annually thereafter.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.2.7",
+    "text": "The solution shall integrate with the state SMS gateway registered on DLT for appointment and report notifications.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.2.8",
+    "text": "The bidder shall provide a disaster recovery site with a recovery point objective of 15 minutes.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.3.1",
+    "text": "The bidder shall complete go-live in all 25 district hospitals within 6 months of the work order.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.3.2",
+    "text": "The bidder shall train at least 300 hospital staff, including doctors, nurses and administrators.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.3.3",
+    "text": "The bidder shall migrate existing patient data of the last 3 years from the legacy system.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.3.4",
+    "text": "The bidder shall deploy one on-site support engineer at each district hospital for the first 6 months after go-live.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.3.6",
+    "text": "The bidder shall deploy a project team led by a PMP-certified project manager with at least 10 years of experience in hospital IT.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.3.7",
+    "text": "The bidder shall have at least 100 employees on its payroll, including implementation engineers.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.4.1",
+    "text": "The bidder shall provide a 24x7 helpdesk with a response time of 4 hours for critical incidents.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.4.2",
+    "text": "The bidder shall provide annual maintenance and support for 5 years after go-live.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.4.3",
+    "text": "The bidder shall pay a penalty of 0.5% of the quarterly fee for every 0.1% of uptime below the guaranteed level.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "6.1",
+    "text": "The bidder shall quote prices in Indian Rupees inclusive of all taxes in the BoQ format at Annexure-D.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "6.3",
+    "text": "The bidder shall furnish a performance bank guarantee of 5% of the contract value within 15 days of the work order.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "4.1.9",
+    "text": "In addition, the solution shall cover the modules listed below.",
+    "type": "mandatory"
+  },
+  {
+    "clause": "M1",
+    "text": "Blood bank management with donor registry and component tracking",
+    "type": "mandatory"
+  },
+  {
+    "clause": "M2",
+    "text": "Operation theatre scheduling with surgeon and anaesthetist rosters",
+    "type": "mandatory"
+  },
+  {
+    "clause": "M3",
+    "text": "Diet and kitchen management for admitted patients",
+    "type": "optional"
+  },
+  {
+    "clause": "M4",
+    "text": "Telemedicine consultation with video and e-prescription",
+    "type": "optional"
+  }
+]

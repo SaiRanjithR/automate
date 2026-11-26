@@ -1,0 +1,46 @@
+{
+  "legal_name": "Nimbus Health Tech Private Limited",
+  "short_name": "NimbusHealth",
+  "address": "4th Floor, Prestige Tech Park, Outer Ring Road, Bengaluru, Karnataka 560103",
+  "gstin": "29AAGCN4821K1Z7",
+  "pan": "AAGCN4821K",
+  "udyam_no": "UDYAM-KR-03-0045821",
+  "signatory_name": "Ananya Rao",
+  "signatory_designation": "Director, Public Sector Business",
+  "email": "bids@nimbushealth.example",
+  "phone": "+91 80 4000 1200",
+  "website": "nimbushealth.example",
+  "year_established": 2012,
+  "turnover": [
+    {
+      "fy": "2023-24",
+      "amount_inr": 52000000
+    },
+    {
+      "fy": "2024-25",
+      "amount_inr": 68000000
+    },
+    {
+      "fy": "2025-26",
+      "amount_inr": 81000000
+    }
+  ],
+  "certifications": [
+    {
+      "name": "ISO 9001:2015",
+      "number": "QMS-IN-22817",
+      "valid_until": "2028-03-31"
+    },
+    {
+      "name": "ISO 27001:2022",
+      "number": "ISMS-IN-10442",
+      "valid_until": "2027-09-30"
+    },
+    {
+      "name": "CMMI Level 3",
+      "number": "CMMI-DEV-3-58120",
+      "valid_until": "2027-06-30"
+    }
+  ],
+  "style_sample": ""
+}

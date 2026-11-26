@@ -1,0 +1,6 @@
+dist
+coverage
+pnpm-lock.yaml
+src/components/ui
+src/types/api.ts
+openapi.json

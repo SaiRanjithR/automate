@@ -1,0 +1,97 @@
+# BidReady policy rules — business, financial and compliance checks run by "Re-run audit".
+#
+# Edit this file (or add more .yaml / .json files in this folder) and click "Re-run audit":
+# files are re-read on every audit, so no code change, restart or redeploy is needed.
+# Rules can also be added in the app under Policies. Field and operator reference: DEMO.md / Policies page.
+#
+# A rule:  id, name, scope (requirement | tender | company), optional `when` filter, `flag_if` condition,
+#          severity (high | medium | low), message ({field.name} placeholders are filled in).
+# A condition: {field, op, value} or {all: [...]}, {any: [...]}, {not: {...}}
+
+rules:
+  # ---------------------------------------------------------------- financial
+  - id: penalty-cap
+    name: Penalty above 1%
+    description: Delay or SLA penalties above 1% need finance approval.
+    scope: requirement
+    when: {field: requirement.text, op: matches, value: "penalt|liquidated damages"}
+    flag_if: {field: requirement.max_percent, op: gt, value: 1}
+    severity: high
+    message: "{requirement.code}: penalty of {requirement.max_percent}% exceeds our 1% cap"
+
+  - id: performance-guarantee-cap
+    name: Performance guarantee above 5%
+    scope: requirement
+    when: {field: requirement.text, op: matches, value: "bank guarantee|performance security|performance bank"}
+    flag_if: {field: requirement.max_percent, op: gt, value: 5}
+    severity: medium
+    message: "{requirement.code}: performance guarantee of {requirement.max_percent}% is above our 5% limit"
+
+  - id: payment-terms
+    name: Payment later than 60 days
+    scope: requirement
+    when: {field: requirement.text, op: matches, value: "payment|invoice|paid"}
+    flag_if: {field: requirement.max_days, op: gt, value: 60}
+    severity: medium
+    message: "{requirement.code}: payment period of {requirement.max_days} days is beyond our 60-day policy"
+
+  - id: emd-approval
+    name: EMD above INR 10 lakh needs CFO approval
+    scope: tender
+    flag_if: {field: tender.emd_inr, op: gt, value: 1000000}
+    severity: medium
+    message: "EMD of INR {tender.emd_inr} needs CFO approval"
+
+  # ---------------------------------------------------------------- business
+  - id: deadline-buffer
+    name: Less than 7 days to the deadline
+    scope: tender
+    flag_if: {field: tender.days_to_deadline, op: lt, value: 7}
+    severity: high
+    message: "Only {tender.days_to_deadline} days left before submission"
+
+  - id: forbidden-promises
+    name: Answer promises something we never promise
+    scope: requirement
+    flag_if:
+      field: answer.text
+      op: contains_any
+      value: ["100% uptime", "guarantee 100", "free of cost", "unlimited support", "at no cost"]
+    severity: high
+    message: "{requirement.code}: the answer contains a promise we never make"
+
+  # ---------------------------------------------------------------- compliance
+  - id: mandatory-gap
+    name: Mandatory requirement without an answer
+    scope: requirement
+    flag_if:
+      all:
+        - {field: requirement.type, op: eq, value: mandatory}
+        - {field: answer.status, op: in, value: [gap, pending]}
+    severity: high
+    message: "{requirement.code}: mandatory requirement has no answer"
+
+  - id: unlimited-liability
+    name: Unlimited liability or indemnity clause
+    scope: requirement
+    flag_if: {field: requirement.text, op: matches, value: "unlimited liability|indemnif"}
+    severity: high
+    message: "{requirement.code}: liability / indemnity clause needs legal review"
+
+  - id: security-needs-iso27001
+    name: Security clause without ISO 27001
+    scope: requirement
+    when: {field: requirement.category, op: eq, value: security}
+    flag_if: {field: company.certifications, op: not_contains, value: "ISO 27001"}
+    severity: high
+    message: "{requirement.code}: security requirement but no ISO 27001 in the company profile"
+
+  - id: commitments-need-signoff
+    name: Commitment not yet signed off
+    scope: requirement
+    flag_if:
+      all:
+        - {field: answer.is_commitment, op: is_true}
+        - {field: answer.approved, op: is_false}
+    severity: low
+    message: "{requirement.code}: commitment to the RFP clause still needs a person to confirm"

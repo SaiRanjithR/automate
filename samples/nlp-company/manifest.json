@@ -1,0 +1,18 @@
+{
+  "Surya_Company_Profile.pdf": {
+    "doc_type": "profile",
+    "outcome": "unknown"
+  },
+  "Surya_Case_Studies.pdf": {
+    "doc_type": "case_study",
+    "outcome": "unknown"
+  },
+  "Surya_Proposal_eProcurement_NLP_Search_WON.docx": {
+    "doc_type": "past_proposal",
+    "outcome": "won"
+  },
+  "Surya_Proposal_Bank_Chatbot_LOST.docx": {
+    "doc_type": "past_proposal",
+    "outcome": "lost"
+  }
+}
